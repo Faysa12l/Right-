@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightOfIslam - Islamic Blogger & Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #1e3d1e;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background-color: #2c5a2c;
+            padding: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 1.5rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(rgba(30, 61, 30, 0.7), rgba(30, 61, 30, 0.7)),
+                        url('islamic-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #1e3d1e;
+            padding: 0.8rem 2rem;
+            margin-top: 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .articles {
+            flex: 3;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Article Cards */
+        .article-card {
+            background-color: #fff;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .quran-verse {
+            font-style: italic;
+            color: #2c5a2c;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background-color: #f8f1e3;
+            padding: 3rem 1rem;
+            margin: 2rem 0;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quiz-box {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1e3d1e;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Social Media */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .facebook:hover { color: #3b5998; }
+        .twitter:hover { color: #1DA1F2; }
+        .instagram:hover { color: #E1306C; }
+        .youtube:hover { color: #FF0000; }
+
+        /* Quiz Styles */
+        .btn {
+            padding: 0.8rem 1.5rem;
+            background-color: #1e3d1e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .answer-btn {
+            width: 100%;
+            text-align: left;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            color: #1e3d1e;
+            border: 2px solid #1e3d1e;
+        }
+
+        .correct { background-color: #2c5a2c !important; color: white !important; }
+        .wrong { background-color: #8b0000 !important; color: white !important; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                display: none;
+            }
+
+            .nav-links.active { display: flex; }
+            .mobile-menu { display: block; }
+            .main-content { flex-direction: column; }
+            .banner { padding: 2rem 1rem; }
+            .logo { font-size: 2rem; }
+        }
+
+        .mobile-menu {
+            display: none;
+            text-align: center;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hide { display: none; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LightOfIslam</div>
+        <p>Guidance for the Modern Muslim</p>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Welcome to LightOfIslam</h1>
+            <p class="quran-verse">"And hold firmly to the rope of Allah all together and do not become divided..." (Quran 3:103)</p>
+            <a href="#articles" class="cta-button">Explore Articles</a>
+        </div>
+    </section>
+
+    <nav class="nav-bar">
+        <div class="mobile-menu">☰</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#quran">Quran</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="articles">
+            <div class="article-card">
+                <h2>Understanding the Five Pillars of Islam</h2>
+                <p class="quran-verse">"And establish prayer and give zakah and obey the Messenger - that you may receive mercy." (Quran 24:56)</p>
+                <p>Article content...</p>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <h3>Recent Posts</h3>
+            <ul>
+                <li>Post 1</li>
+                <li>Post 2</li>
+                <li>Post 3</li>
+            </ul>
+            
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </aside>
+    </main>
+
+    <section class="quiz-section" id="quiz">
+        <div class="quiz-container">
+            <h2>Islamic Knowledge Quiz</h2>
+            <div class="quiz-box">
+                <div id="question-container">
+                    <div id="question"></div>
+                    <div id="answer-buttons" class="btn-grid"></div>
+                </div>
+                <div class="controls">
+                    <button id="start-btn" class="start-btn btn">Start Quiz</button>
+                    <div id="score" class="score"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>© 2023 LightOfIslam - All rights reserved</p>
+        <p>"And whoever does righteousness - whether male or female - while he is a believer, We will surely cause him to live a good life..." (Quran 16:97)</p>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Quiz Logic
+        const questions = [
+            {
+                question: "In which year was Prophet Muhammad (PBUH) born?",
+                answers: [
+                    { text: "570 CE", correct: true },
+                    { text: "622 CE", correct: false },
+                    { text: "630 CE", correct: false },
+                    { text: "550 CE", correct: false }
+                ]
+            },
+            {
+                question: "Which prophet is known as the 'Father of Humanity'?",
+                answers: [
+                    { text: "Prophet Adam (AS)", correct: true },
+                    { text: "Prophet Nuh (AS)", correct: false },
+                    { text: "Prophet Ibrahim (AS)", correct: false },
+                    { text: "Prophet Musa (AS)", correct: false }
+                ]
+            }
+        ];
+
+        const startButton = document.getElementById('start-btn');
+        const questionElement = document.getElementById('question');
+        const answerButtons = document.getElementById('answer-buttons');
+        const scoreElement = document.getElementById('score');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        startButton.addEventListener('click', startQuiz);
+
+        function startQuiz() {
+            startButton.classList.add('hide');
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreElement.innerHTML = '';
+            showQuestion(questions[currentQuestionIndex]);
+        }
+
+        function showQuestion(question) {
+            questionElement.innerText = question.question;
+            answerButtons.innerHTML = '';
+            
+            question.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer.text;
+                button.classList.add('btn', 'answer-btn');
+                if (answer.correct) button.dataset.correct = answer.correct;
+                button.addEventListener('click', selectAnswer);
+                answerButtons.appendChild(button);
+            });
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const correct = selectedButton.dataset.correct === 'true';
+            
+            Array.from(answerButtons.children).forEach(button => {
+                setStatusClass(button, button.dataset.correct === 'true');
+            });
+            
+            if (correct) score++;
+            scoreElement.innerHTML = `Score: ${score}/${questions.length}`;
+            
+            setTimeout(() => {
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion(questions[currentQuestionIndex]);
+                } else {
+                    endQuiz();
+                }
+            }, 1000);
+        }
+
+        function setStatusClass(element, correct) {
+            clearStatusClass(element);
+            correct ? element.classList.add('correct') : element.classList.add('wrong');
+        }
+
+        function clearStatusClass(element) {
+            element.classList.remove('correct', 'wrong');
+        }
+
+        function endQuiz() {
+            questionContainer.classList.add('hide');
+            startButton.innerText = 'Restart Quiz';
+            startButton.classList.remove('hide');
+            scoreElement.innerHTML = `Final Score: ${score}/${questions.length}`;
+        }
+
+        // Back to Top Button
+        const backToTop = document.createElement('button');
+        backToTop.innerHTML = '↑';
+        backToTop.style.position = 'fixed';
+        backToTop.style.bottom = '20px';
+        backToTop.style.right = '20px';
+        backToTop.style.padding = '10px 15px';
+        backToTop.style.backgroundColor = '#1e3d1e';
+        backToTop.style.color = 'white';
+        backToTop.style.border = 'none';
+        backToTop.style.borderRadius = '5px';
+        backToTop.style.cursor = 'pointer';
+        backToTop.style.display = 'none';
+        document.body.appendChild(backToTop);
+
+        window.addEventListener('scroll', () => {
+            window.pageYOffset > 200 
+                ? backToTop.style.display = 'block'
+                : backToTop.style.display = 'none';
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
